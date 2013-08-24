@@ -7,6 +7,8 @@
 
 (defrecord Constraint [squares total-mines])
 
+;; defrecord automatically defines a constructor fn for you, so this
+;; is the same as the existing ->Constraint
 (defn new-constraint [squares total-mines] (Constraint. squares total-mines))
 
 (defn from-facts [rows cols]

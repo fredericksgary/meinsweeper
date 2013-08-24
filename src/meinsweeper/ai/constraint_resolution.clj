@@ -34,12 +34,14 @@
        (fd/+ tail-sum head num))]))
 
 (defn- solution-summary [all-coordinates coordinate-value-list]
+  ;; (zipmap all-coordinates coordinate-value-list)
    (into {}  (map vector all-coordinates coordinate-value-list)))
 
 (defn- all-coordinates [constraints]
   (reduce clojure.set/union (map :squares constraints)))
 
 (def lvar-for-coordinate
+  ;; shorter is (memoize lg/lvar)
   (memoize #(lg/lvar %)))
 
 (defn- constraint-lvars [constraint]
